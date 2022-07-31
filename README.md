@@ -4,8 +4,8 @@ Heralding from the Void Between Worlds, these creatures entered the lands for re
 
 ## Requirements
 
-- Origins 1.1.4+
-  - Minecraft 1.17.1+
+- Origins 1.4.1+
+  - Minecraft 1.18.2+
 - Custom Resource Pack
 
 ## Origins
