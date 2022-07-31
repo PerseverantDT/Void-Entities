@@ -1,0 +1,2 @@
+execute as @e[type=item,nbt={Item:{id:"minecraft:netherite_sword",tag:{Unbreakable:1b}}}] run function void-entities:void_knight/kill_dropped_void_blade
+execute as @a[tag=!can_use_void_blade,nbt={Inventory:[{id:"minecraft:netherite_sword",tag:{Unbreakable:1b}}]}] run function void-entities:void_knight/remove_void_blade_from_inventory

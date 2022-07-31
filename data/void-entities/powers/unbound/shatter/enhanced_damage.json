@@ -1,0 +1,116 @@
+{
+    "type": "apoli:action_over_time",
+    "interval": 10,
+    "entity_action": {
+        "type": "apoli:if_else_list",
+        "actions": [
+            {
+                "action": {
+                    "type": "apoli:damage",
+                    "amount": 12.5,
+                    "source": {
+                        "name": "voidShatter",
+                        "bypasses_armor": true
+                    }
+                },
+                "condition": {
+                    "type": "apoli:command",
+                    "command": "execute if entity @e[tag=shatter_source,distance=..2",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            },
+            {
+                "action": {
+                    "type": "apoli:damage",
+                    "amount": 8.75,
+                    "source": {
+                        "name": "voidShatter",
+                        "bypasses_armor": true
+                    }
+                },
+                "condition": {
+                    "type": "apoli:command",
+                    "command": "execute if entity @e[tag=shatter_source,distance=..5",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            },
+            {
+                "action": {
+                    "type": "apoli:damage",
+                    "amount": 6,
+                    "source": {
+                        "name": "voidShatter",
+                        "bypasses_armor": true
+                    }
+                },
+                "condition": {
+                    "type": "apoli:command",
+                    "command": "execute if entity @e[tag=shatter_source,distance=..8",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            },
+            {
+                "action": {
+                    "type": "apoli:damage",
+                    "amount": 4,
+                    "source": {
+                        "name": "voidShatter",
+                        "bypasses_armor": true
+                    }
+                },
+                "condition": {
+                    "type": "apoli:command",
+                    "command": "execute if entity @e[tag=shatter_source,distance=..12",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            },
+            {
+                "action": {
+                    "type": "apoli:damage",
+                    "amount": 2,
+                    "source": {
+                        "name": "voidShatter",
+                        "bypasses_armor": true
+                    }
+                },
+                "condition": {
+                    "type": "apoli:command",
+                    "command": "execute if entity @e[tag=shatter_source,distance=..16",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            },
+            {
+                "action": {
+                    "type": "apoli:damage",
+                    "amount": 1,
+                    "source": {
+                        "name": "voidShatter",
+                        "bypasses_armor": true
+                    }
+                },
+                "condition": {
+                    "type": "apoli:command",
+                    "command": "execute if entity @e[tag=shatter_source,distance=..18",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            },
+            {
+                "action": {
+                    "type": "apoli:revoke_power",
+                    "power": "*:*",
+                    "source": "void-entities:void_knight_mutual_destruction"
+                },
+                "condition": {
+                    "type": "apoli:constant",
+                    "value": true
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "replace": false,
+    "values": [
+        {
+            "id": "void-entities:void_knight/apply_void_blade_withering_attacks",
+            "required": false
+        },
+        {
+            "id": "void-entities:void_knight/find_invalid_void_blade",
+            "required": false
+        }
+    ]
+}

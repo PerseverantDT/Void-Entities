@@ -1,0 +1,71 @@
+{
+    "badges": [
+        {
+            "sprite": "void-entities:textures/gui/badge/void_heart.png",
+            "text": "void-entities.gui.badge.requires_void_energy"
+        },
+        {
+            "sprite": "minecraft:textures/item/clock_00.png",
+            "text": "void-entities.gui.badge.void_cloak/cooldown"
+        }
+    ],
+    "type": "apoli:action_when_hit",
+    "cooldown": 60,
+    "damage_condition": {
+        "type": "apoli:and",
+        "conditions": [
+            {
+                "type": "apoli:projectile",
+                "inverted": true
+            },
+            {
+                "type": "apoli:attacker"
+            },
+            {
+                "type": "apoli:name",
+                "name": "explosion",
+                "inverted": true
+            }
+        ]
+    },
+    "condition": {
+        "type": "apoli:and",
+        "conditions": [
+            {
+                "type": "apoli:resource",
+                "resource": "*:void_energy",
+                "comparison": ">=",
+                "compare_to": 500
+            }
+        ]
+    },
+    "bientity_action": {
+        "type": "apoli:and",
+        "actions": [
+            {
+                "type": "apoli:actor_action",
+                "action": {
+                    "type": "apoli:execute_command",
+                    "command": "function void-entities:void_knight/void_cloak_summon_dummy"
+                }
+            },
+            {
+                "type": "apoli:target_action",
+                "action": {
+                    "type": "apoli:and",
+                    "actions": [
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "teleport @s @e[tag=void_cloak_tp_target,limit=1,sort=nearest]"
+                        },
+                        {
+                            "type": "apoli:change_resource",
+                            "resource": "*:void_energy",
+                            "change": -500
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

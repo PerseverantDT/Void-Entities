@@ -1,0 +1,1 @@
+title @s actionbar {"text": "A cold wind breezes over you.","color": "red","bold": true}

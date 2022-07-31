@@ -1,0 +1,4 @@
+execute if entity @s[nbt={Inventory:[{id:"minecraft:netherite_sword",tag:{Unbreakable:1b,CustomData:19534s}}]}] run power grant @s void-entities:unbound/void_blade_withering_attack_regular void-entities:has_void_blade
+execute if entity @s[nbt={Inventory:[{id:"minecraft:netherite_sword",tag:{Unbreakable:1b,CustomData:26974s}}]}] run power grant @s void-entities:unbound/void_blade_withering_attack_enhanced void-entities:has_void_blade
+execute if entity @s[nbt=!{Inventory:[{id:"minecraft:netherite_sword",tag:{Unbreakable:1b,CustomData:19534s}}]}] run power revoke @s void-entities:unbound/void_blade_withering_attack_regular void-entities:has_void_blade
+execute if entity @s[nbt=!{Inventory:[{id:"minecraft:netherite_sword",tag:{Unbreakable:1b,CustomData:26974s}}]}] run power revoke @s void-entities:unbound/void_blade_withering_attack_enhanced void-entities:has_void_blade

@@ -1,0 +1,1 @@
+title @s actionbar {"text":"Stunned!","color": "red","bold": true}

@@ -1,0 +1,466 @@
+{
+    "type": "apoli:multiple",
+    "badges": [
+        {
+            "sprite": "void-entities:textures/gui/badge/void_heart.png",
+            "text": "void-entities.gui.badge.requires_void_energy"
+        },
+        {
+            "sprite": "minecraft:textures/item/clock_00.png",
+            "text": "void-entities.gui.badge.shatter/cooldown"
+        }
+    ],
+    "cooldown": {
+        "type": "apoli:cooldown",
+        "cooldown": 2400,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "void-entities:textures/gui/resource_bar.png",
+            "bar_index": 4
+        }
+    },
+    "cooldown_reset_on_death": {
+        "type": "apoli:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "apoli:health",
+            "comparison": "<=",
+            "compare_to": 0.0
+        },
+        "rising_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_cooldown",
+            "change": 2400,
+            "operation": "set"
+        }
+    },
+    "cooldown_reset_on_add": {
+        "type": "apoli:action_on_callback",
+        "entity_action_added": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_cooldown",
+            "change": 2400,
+            "operation": "set"
+        }
+    },
+    "prevent_death": {
+        "type": "apoli:prevent_death",
+        "damage_condition": {
+            "type": "apoli:constant",
+            "value": true
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:void_energy",
+                    "comparison": ">=",
+                    "compare_to": 2000
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_regular_active",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_enhanced_active",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "apoli:if_else",
+            "condition": {
+                "type": "apoli:or",
+                "conditions": [
+                    {
+                        "type": "apoli:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:resource",
+                                "resource": "*:void_energy",
+                                "comparison": ">=",
+                                "compare_to": 9000
+                            },
+                            {
+                                "type": "apoli:advancement",
+                                "advancement": "minecraft:story/enter_the_end",
+                                "inverted": true
+                            },
+                            {
+                                "type": "apoli:predicate",
+                                "predicate": "void-entities:enhanced_shatter_chance"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "apoli:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:resource",
+                                "resource": "*:void_energy",
+                                "comparison": ">=",
+                                "compare_to": 7500
+                            },
+                            {
+                                "type": "apoli:advancement",
+                                "advancement": "minecraft:story/enter_the_end"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "apoli:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:advancement",
+                                "advancement": "minecraft:story/enter_the_end"
+                            },
+                            {
+                                "type": "apoli:predicate",
+                                "predicate": "void-entities:enhanced_shatter_chance"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "if_action": {
+                "type": "apoli:change_resource",
+                "resource": "*:*_is_enhanced_active",
+                "change": 1
+            },
+            "else_action": {
+                "type": "apoli:change_resource",
+                "resource": "*:*_is_regular_active",
+                "change": 1
+            }
+        }
+    },
+    "is_regular_active": {
+        "type": "apoli:resource",
+        "min": 0,
+        "min_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:trigger_cooldown",
+                    "power": "*:*_cooldown"
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_regular_delay",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "apoli:trigger_cooldown",
+                    "power": "*:*_temp_invul"
+                },
+                {
+                    "type": "apoli:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:speed",
+                            "amplifier": 1,
+                            "duration": 100,
+                            "hide_particles": true
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:revoke_power",
+                    "power": "*:*/stun",
+                    "source": "void-entities:void_knight_mutual_destruction"
+                }
+            ]
+        },
+        "max": 1,
+        "max_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:grant_power",
+                    "power": "*:*/stun",
+                    "source": "void-entities:void_knight_mutual_destruction"
+                },
+                {
+                    "type": "apoli:execute_command",
+                    "command": "function void-entities:void_knight/start_shatter"
+                }
+            ]
+        },
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "is_enhanced_active": {
+        "type": "apoli:resource",
+        "min": 0,
+        "min_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:trigger_cooldown",
+                    "power": "*:*_cooldown"
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:*_enhanced_delay",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "apoli:trigger_cooldown",
+                    "power": "*:*_temp_invul"
+                },
+                {
+                    "type": "apoli:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:speed",
+                            "amplifier": 1,
+                            "duration": 100,
+                            "hide_particles": true
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:revoke_power",
+                    "power": "*:*/stun",
+                    "source": "void-entities:void_knight_mutual_destruction"
+                }
+            ]
+        },
+        "max": 1,
+        "max_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:grant_power",
+                    "power": "*:*/stun",
+                    "source": "void-entities:void_knight_mutual_destruction"
+                },
+                {
+                    "type": "apoli:execute_command",
+                    "command": "function void-entities:void_knight/start_shatter"
+                }
+            ]
+        },
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "regular_delay": {
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 40,
+        "max_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:grant_power",
+                    "power": "*:*/regular",
+                    "source": "void-entities:void_knight_mutual_destruction"
+                }
+            ]
+        },
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "enhanced_delay": {
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 50,
+        "max_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:grant_power",
+                    "power": "*:*/enhanced",
+                    "source": "void-entities:void_knight_mutual_destruction"
+                }
+            ]
+        },
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "delay_tick": {
+        "type": "apoli:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:if_else",
+                    "condition": {
+                        "type": "apoli:resource",
+                        "resource": "*:*_is_regular_active",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "apoli:change_resource",
+                        "resource": "*:*_regular_delay",
+                        "change": 1
+                    }
+                },
+                {
+                    "type": "apoli:if_else",
+                    "condition": {
+                        "type": "apoli:resource",
+                        "resource": "*:*_is_enhanced_active",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "apoli:change_resource",
+                        "resource": "*:*_enhanced_delay",
+                        "change": 1
+                    }
+                }
+            ]
+        }
+    },
+    "temp_invul": {
+        "type": "apoli:cooldown",
+        "cooldown": 50,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "invulnerability": {
+        "type": "apoli:invulnerability",
+        "damage_condition": {
+            "type": "apoli:constant",
+            "value": true
+        },
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_regular_active",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_enhanced_active",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_temp_invul",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "shader": {
+        "type": "apoli:shader",
+        "shader": "minecraft:shaders/post/desaturate.json",
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_regular_active",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_enhanced_active",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "overlay": {
+        "type": "apoli:overlay",
+        "texture": "minecraft:textures/misc/vignette.png",
+        "strength": 1,
+        "red": 0,
+        "green": 0,
+        "blue": 0,
+        "draw_mode": "nausea",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_regular_active",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_enhanced_active",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "ambient_particles_0": {
+        "type": "apoli:particle",
+        "particle": "minecraft:squid_ink",
+        "frequency": 1,
+        "visible_in_first_person": false,
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_regular_active",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_enhanced_active",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "ambient_particles_1": {
+        "type": "apoli:particle",
+        "particle": "minecraft:squid_ink",
+        "frequency": 2,
+        "visible_in_first_person": false,
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_is_enhanced_active",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    }
+}

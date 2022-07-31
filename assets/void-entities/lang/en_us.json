@@ -1,0 +1,109 @@
+{
+    "origin.void-entities.void_knight.name": "Void Knight",
+    "origin.void-entities.void_knight.description": "One of the Void's stronger fighters. Only a few can face its power without dire consequences.",
+
+    "origin.void-entities.shade_master.name": "Shade Master",
+    "origin.void-entities.shade_master.description": "An entity capable of summoning and manipulating constructs made of pure Void.",
+
+    "power.void-entities.void_entity.name": "Void Entity",
+    "power.void-entities.void_entity.description": "You are a creature from the Void Between Worlds, capable of harnessing its highly destructive energy without repercussions.",
+
+    "power.void-entities.void_energy.name": "Void Energy",
+    "power.void-entities.void_energy.description": "Your form can utilize the highly destructive Void energy without repercussions.",
+
+    "power.void-entities.void_energy_death_gain.name": "Rematerialize",
+    "power.void-entities.void_energy_death_gain.description": "On death, you will respawn with additional Void Energy.",
+
+    "power.void-entities.strong_in_the_dark.name": "Nightly Abyss",
+    "power.void-entities.strong_in_the_dark.description": "When in dark areas, you become stronger as the Void empowers you directly.",
+
+    "power.void-entities.weak_in_the_light.name": "Blinding Light",
+    "power.void-entities.weak_in_the_light.description": "When in bright areas, you become weaker as your form attempts to flee from the light.",
+
+    "power.void-entities.void_knight/call_to_the_void.name": "Call to the Void",
+    "power.void-entities.void_knight/call_to_the_void.description": "By calling to the Void, you replenish your Void energy. However, while channeling, you cannot move, attack, nor interact with objects. You also take additional damage while channeling.",
+
+    "power.void-entities.void_knight/void_blade.name": "The Void's Edge",
+    "power.void-entities.void_knight/void_blade.description": "You can concentrate Void energy into a physical blade. Such a concentration is taxing on your form and will constantly consume Void energy.",
+
+    "power.void-entities.void_knight/target_weakness.name": "The Void's Gaze",
+    "power.void-entities.void_knight/target_weakness.description": "You can call upon the Void to see through your opponent's defenses, allowing you to deal more damage to them.",
+
+    "power.void-entities.void_knight/empower_attack.name": "Abyssal Smite",
+    "power.void-entities.void_knight/empower_attack.description": "You can empower your next strike, dealing additional damage and stunning your target.",
+
+    "power.void-entities.void_knight/m_a_d.name": "Shatter",
+    "power.void-entities.void_knight/m_a_d.description": "You will expel all your stored Void energy upon taking lethal damage, preventing your death and exploding as all the stored energy violently bursts into the surroundings.",
+
+    "power.void-entities.void_knight/behind_you.name": "Void Cloak",
+    "power.void-entities.void_knight/behind_you.description": "You can negate any damage and teleport behind your attacker.",
+
+    "power.void-entities.void_knight/dense_body.name": "Dense Concentration",
+    "power.void-entities.void_knight/dense_body.description": "Unless you have 20% Void Energy, you cannot float in water.",
+
+    "power.void-entities.shade_master/void_mastery.name": "Void Mastery",
+    "power.void-entities.shade_master/void_mastery.description": "You take massively reduced damage from all forms of Void damage and can passively regenerate Void Energy.",
+
+    "power.void-entities.shade_master/ability_switch.name": "Ability Switch",
+    "power.void-entities.shade_master/ability_switch.description": "You can switch your active abilities with the Load Hotbar Activator and Save Hotbar Activator keys.",
+
+    "power.void-entities.shade_master/summon_static_shade.name": "Summon Static Shade",
+    "power.void-entities.shade_master/summon_static_shade.description": "You can summon a Shade on your position. This Shade will stay in position regardless of entity collision or gravity. Enemies near a Static Shade will glow for you.",
+
+    "power.void-entities.shade_master/summon_gliding_shade.name": "Summon Gliding Shade",
+    "power.void-entities.shade_master/summon_gliding_shade.description": "You can summon a Shade on your position. This Shade will slowly glide towards the nearest entity within a 10-block radius. If anyone is within 3 blocks of this Shade, summoner included, there is a chance that the Shade will attack everyone close to it, dealing a small amount of Void damage.",
+
+    "power.void-entities.shade_master/become_trailing_shade.name": "Trailing Shadow",
+    "power.void-entities.shade_master/become_trailing_shade.description": "You can briefly turn yourself into a Trailing Shade, leaving a trail of Void while moving. After a few seconds, the trail's energy explodes, dealing Void damage to all entities near it. Abilities are disabled while this is active.",
+
+    "power.void-entities.shade_master/shade_warp.name": "Shade Warp",
+    "power.void-entities.shade_master/shade_warp.description": "You can send out a Shade forward 10 blocks, dealing minimal damage to whoever it touches. After it stops, you teleport to the shade after a short delay.",
+
+    "power.void-entities.shade_master/void_barrier.name": "Void Barrier",
+    "power.void-entities.shade_master/void_barrier.description": "All nearby Shades begin emitting a protective Void aura. All entities in the aura slowly take negligible damage but receive 80% less damage from projectiles and attackers from outside. Entities touching the edge of the aura take significant damage.",
+
+    "power.void-entities.shade_master/restoration.name": "Restoration",
+    "power.void-entities.shade_master/restoration.description": "You consume the nearest Shade, restoring Void energy and health.",
+
+    "power.void-entities.shade_master/weak_materiality.name": "Weak Materiality",
+    "power.void-entities.shade_master/weak_materiality.description": "You have less health and take more damage compared to other Void entities.",
+
+    "power.void-entities.shade_master/shade_transfiguration.name": "Shade Transfiguration",
+    "power.void-entities.shade_master/shade_transfiguration.description": "On death, you turn into a Void Shade, gaining death immunity, increased movement speed, increased attack speed, and increased damage. However, you lose Void Energy over time. You die if your Void Energy depletes. After 5 seconds, your remaining Void Energy will reform your body, allowing you to live once again. Taking damage will regress this reformation.",
+
+    "void-entities.gui.badge.held_ability": "Held ability, use %s",
+    "void-entities.gui.badge.damage_buff": "You deal additional melee damage.",
+    "void-entities.gui.badge.damage_resist": "You take reduced damage from all sources.",
+    "void-entities.gui.badge.damage_debuff": "You deal reduced melee damage.",
+    "void-entities.gui.badge.reverse_resistance": "You take additional damage from all sources.",
+    "void-entities.gui.badge.movement_slow": "You have reduced movement speed.",
+    "void-entities.gui.badge.requires_void_energy": "Requires Void Energy to work",
+
+    "void-entities.gui.badge.call_to_the_void/unusable_full_energy": "Cannot activate with full Void energy",
+    "void-entities.gui.badge.call_to_the_void/reverse_resistance": "You take additional damage from all sources while channeling.",
+
+    "void-entities.gui.badge.void_entity/no_food": "You have no need for food.",
+    "void-entities.gui.badge.void_entity/no_air": "You have no need for air.",
+    "void-entities.gui.badge.void_entity/void_heart": "You require Void energy to regenerate health.",
+
+    "void-entities.gui.badge.void_blade/cooldown": "Cooldown: 5 minutes",
+    "void-entities.gui.badge.voids_gaze/cooldown": "Cooldown: 10 seconds",
+    "void-entities.gui.badge.abyssal_smite/cooldown": "Cooldown: 5 seconds",
+    "void-entities.gui.badge.shatter/cooldown": "Cooldown: 1 minute",
+    "void-entities.gui.badge.void_cloak/cooldown": "Cooldown: 3 seconds",
+
+    "death.attack.voidShatter": "%1$s was overwhelmed with Void energy.",
+    "death.attack.voidShatter.player": "%1$s was overwhelmed with Void energy due to %2$s.",
+    "death.attack.voidGlidingShade": "%1$s was lashed at by a Gliding Shade.",
+    "death.attack.voidGlidingShade.player": "%1$s was lashed at by a Gliding Shade while fighting %2$s.",
+    "death.attack.voidTrail": "%1$s came too close to a Void trail.",
+    "death.attack.voidTrail.player": "%2$s forced %1$s too close to a Void trail.",
+    "death.attack.voidWarpShade": "%1$s was consumed by a Warp Shade",
+    "death.attack.voidWarpShade.player": "%1$s was consumed by a Warp Shade while fighting %2$s.",
+    "death.attack.voidTeleport": "%1$s was run over by the Void.",
+    "death.attack.voidTeleport.player": "%1$s was run over by the Void while fighting %2$s.",
+    "death.attack.voidBarrierEdge": "%1$s was sliced by a Void barrier.",
+    "death.attack.voidBarrierEdge.player": "%1$s was sliced by a Void Barrier while fighting %2$s.",
+    "death.attack.shadeTransfigExpire": "%1$s could not reform their body in time.",
+    "death.attack.shadeTransfigExpire.player": "%1$s could not reform their body in time due to %2$s."
+}

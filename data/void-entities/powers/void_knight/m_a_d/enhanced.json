@@ -1,0 +1,44 @@
+{
+    "hidden": true,
+    "type": "apoli:action_over_time",
+    "interval": 1,
+    "condition": {
+        "type": "apoli:resource",
+        "resource": "*:void_energy",
+        "comparison": ">",
+        "compare_to": 0
+    },
+    "entity_action": {
+        "type": "apoli:and",
+        "actions": [
+            {
+                "type": "apoli:change_resource",
+                "resource": "*:void_energy",
+                "change": -100
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "execute as @e[distance=..18,tag=!shatter_source] run power grant @s void-entities:unbound/shatter/enhanced_damage void-entities:void_knight_mutual_destruction"
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "function void-entities:void_knight/shatter_visuals"
+            }
+        ]
+    },
+    "falling_action": {
+        "type": "apoli:and",
+        "actions": [
+            {
+                "type": "apoli:grant_power",
+                "power": "*:*_recover",
+                "source": "void-entities:void_knight_mutual_destruction"
+            },
+            {
+                "type": "apoli:revoke_power",
+                "power": "*:*",
+                "source": "void-entities:void_knight_mutual_destruction"
+            }
+        ]
+    }
+}

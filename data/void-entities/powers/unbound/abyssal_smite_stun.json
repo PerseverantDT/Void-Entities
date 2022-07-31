@@ -1,0 +1,99 @@
+{
+    "type": "apoli:multiple",
+    "hidden": true,
+    "duration": {
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 25,
+        "max_action": {
+            "type": "apoli:revoke_power",
+            "power": "*:*",
+            "source": "void-entities:void_knight_abyssal_smite"
+        },
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "remove": {
+        "type": "apoli:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_duration",
+            "change": 1
+        }
+    },
+    "no_movement_walk_swim_lava": {
+        "type": "apoli:attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_total",
+                "value": -1.0
+            },
+            {
+                "attribute": "additionalentityattributes:water_speed",
+                "operation": "multiply_total",
+                "value": -1.0
+            },
+            {
+                "attribute": "additionalentityattributes:lava_speed",
+                "operation": "multiply_total",
+                "value": -1.0
+            }
+        ]
+    },
+    "no_movement_air": {
+        "type": "apoli:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1.0
+        }
+    },
+    "no_movement_jump": {
+        "type": "apoli:modify_jump",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1.0
+        }
+    },
+    "no_interact": {
+        "type": "apoli:prevent_block_selection"
+    },
+    "no_item_use": {
+        "type": "apoli:prevent_item_use"
+    },
+    "no_vision": {
+        "type": "apoli:overlay",
+        "texture": "minecraft:textures/misc/nausea.png",
+        "draw_mode": "texture",
+        "strength": 0.9,
+        "red": 1.0,
+        "blue": 1.0,
+        "green": 1.0,
+        "hide_with_hud": false,
+        "draw_phase": "below_hud",
+        "visible_in_third_person": true
+    },
+    "callbacks": {
+        "type": "apoli:action_on_callback",
+        "entity_action_added": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:execute_command",
+                    "command": "function void-entities:alerts/stunned"
+                },
+                {
+                    "type": "apoli:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "amplifier": 0,
+                        "duration": 90
+                    }
+                }
+            ]
+        }
+    }
+}

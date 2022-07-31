@@ -1,0 +1,3 @@
+execute store result score #nearbyEnemies constant run execute if entity @e[type=!item,distance=..8]
+execute if score #nearbyEnemies constant > #hasNearbyEnemy constant run title @s actionbar {"text":"The Void empowers your next strike. Strike them down!","color": "black","bold": true}
+execute unless score #nearbyEnemies constant > #hasNearbyEnemy constant run title @s actionbar {"text": "The Void empowers your future strike.","color": "black","bold": true}

@@ -1,0 +1,9 @@
+{
+    "type": "apoli:ignore_water",
+    "condition": {
+        "type": "apoli:resource",
+        "resource": "*:void_energy",
+        "comparison": ">=",
+        "compare_to": 2000
+    }
+}

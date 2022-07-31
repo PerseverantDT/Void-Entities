@@ -1,0 +1,65 @@
+{
+    "hidden": true,
+    "type": "apoli:action_over_time",
+    "interval": 5,
+    "condition": {
+        "type": "apoli:health",
+        "comparison": "<=",
+        "compare_to": 0.0
+    },
+    "rising_action": {
+        "type": "apoli:if_else_list",
+        "actions": [
+            {
+                "condition": {
+                    "type": "apoli:resource",
+                    "resource": "*:void_energy",
+                    "comparison": "<=",
+                    "compare_to": 1000
+                },
+                "action": {
+                    "type": "apoli:change_resource",
+                    "resource": "*:void_energy",
+                    "change": 4000
+                }
+            },
+            {
+                "condition": {
+                    "type": "apoli:resource",
+                    "resource": "*:void_energy",
+                    "comparison": "<=",
+                    "compare_to": 3000
+                },
+                "action": {
+                    "type": "apoli:change_resource",
+                    "resource": "*:void_energy",
+                    "change": 3000
+                }
+            },
+            {
+                "condition": {
+                    "type": "apoli:resource",
+                    "resource": "*:void_energy",
+                    "comparison": "<=",
+                    "compare_to": 6000
+                },
+                "action": {
+                    "type": "apoli:change_resource",
+                    "resource": "*:void_energy",
+                    "change": 2000
+                }
+            },
+            {
+                "condition": {
+                    "type": "apoli:constant",
+                    "value": true
+                },
+                "action": {
+                    "type": "apoli:change_resource",
+                    "resource": "*:void_energy",
+                    "change": 1000
+                }
+            }
+        ]
+    }
+}

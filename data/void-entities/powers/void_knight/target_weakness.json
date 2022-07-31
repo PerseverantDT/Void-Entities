@@ -1,0 +1,200 @@
+{
+    "type": "apoli:multiple",
+    "badges": [
+        {
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "origins.gui.badge.active"
+        },
+        {
+            "sprite": "void-entities:textures/gui/badge/void_heart.png",
+            "text": "void-entities.gui.badge.requires_void_energy"
+        },
+        {
+            "sprite": "minecraft:textures/item/clock_00.png",
+            "text": "void-entities.gui.badge.voids_gaze/cooldown"
+        }
+    ],
+    "cooldown": {
+        "type": "apoli:cooldown",
+        "cooldown": 50,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "void-entities:textures/gui/resource_bar.png",
+            "bar_index": 2
+        }
+    },
+    "activate": {
+        "type": "apoli:active_self",
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:void_energy",
+                    "comparison": ">=",
+                    "compare_to": 500
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:void_knight/call_to_the_void_is_active",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "apoli:raycast",
+            "distance": 16,
+            "block": true,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "apoli:and",
+                "actions": [
+                    {
+                        "type": "apoli:target_action",
+                        "action": {
+                            "type": "apoli:and",
+                            "actions": [
+                                {
+                                    "type": "apoli:choice",
+                                    "actions": [
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/hit_by_target_weakness/00"
+                                            },
+                                            "weight": 1
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/hit_by_target_weakness/01"
+                                            },
+                                            "weight": 1
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/hit_by_target_weakness/02"
+                                            },
+                                            "weight": 10
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/hit_by_target_weakness/03"
+                                            },
+                                            "weight": 10
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/hit_by_target_weakness/04"
+                                            },
+                                            "weight": 10
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/hit_by_target_weakness/05"
+                                            },
+                                            "weight": 10
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/hit_by_target_weakness/06"
+                                            },
+                                            "weight": 1
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/hit_by_target_weakness/07"
+                                            },
+                                            "weight": 1
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/hit_by_target_weakness/08"
+                                            },
+                                            "weight": 10
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "apoli:grant_power",
+                                    "power": "*:unbound/voids_gaze_weakness",
+                                    "source": "void-entities:void_knight_target_weakness"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "apoli:actor_action",
+                        "action": {
+                            "type": "apoli:and",
+                            "actions": [
+                                {
+                                    "type": "apoli:change_resource",
+                                    "resource": "*:void_energy",
+                                    "change": -500
+                                },
+                                {
+                                    "type": "apoli:trigger_cooldown",
+                                    "power": "*:*_cooldown"
+                                },
+                                {
+                                    "type": "apoli:choice",
+                                    "actions": [
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/target_weakness_hit_someone/00"
+                                            },
+                                            "weight": 15
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/target_weakness_hit_someone/01"
+                                            },
+                                            "weight": 1
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/target_weakness_hit_someone/02"
+                                            },
+                                            "weight": 15
+                                        },
+                                        {
+                                            "element": {
+                                                "type": "apoli:execute_command",
+                                                "command": "function void-entities:alerts/target_weakness_hit_someone/03"
+                                            },
+                                            "weight": 11
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "icon": {
+        "item": "minecraft:netherite_sword"
+    },
+    "impact": 3,
+    "order": 10,
+    "powers": [
+        "void-entities:void_entity",
+        "void-entities:void_energy",
+        "void-entities:void_energy_death_gain",
+        "void-entities:strong_in_the_dark",
+        "void-entities:weak_in_the_light",
+        "void-entities:void_knight/call_to_the_void",
+        "void-entities:void_knight/void_blade",
+        "void-entities:void_knight/empower_attack",
+        "void-entities:void_knight/target_weakness",
+        "void-entities:void_knight/m_a_d",
+        "void-entities:void_knight/behind_you",
+        "void-entities:void_knight/dense_body"
+    ]
+}

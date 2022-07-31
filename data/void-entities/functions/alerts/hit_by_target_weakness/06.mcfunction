@@ -1,0 +1,1 @@
+title @s actionbar {"text": "The Void hunts you.","color": "black","bold": true}

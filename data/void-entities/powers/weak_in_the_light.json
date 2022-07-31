@@ -1,0 +1,288 @@
+{
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "void-entities.gui.badge.damage_debuff"
+        },
+        {
+            "sprite": "void-entities:textures/gui/badge/reverse_resistance.png",
+            "text": "void-entities.gui.badge.reverse_resistance"
+        },
+        {
+            "sprite": "minecraft:textures/mob_effect/slowness.png",
+            "text": "void-entities.gui.badge.movement_slow"
+        }
+    ],
+    "type": "apoli:multiple",
+    "damage_debuff": {
+        "type": "apoli:modify_damage_dealt",
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime"
+                        },
+                        {
+                            "type": "apoli:dimension",
+                            "dimension": "minecraft:overworld"
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:or",
+                            "conditions": [
+                                {
+                                    "type": "apoli:daytime",
+                                    "inverted": true
+                                },
+                                {
+                                    "type": "apoli:dimension",
+                                    "dimension": "minecraft:overworld",
+                                    "inverted": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "light_type": "block",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        }
+    },
+    "reverse_resistance": {
+        "type": "apoli:modify_damage_taken",
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime"
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime",
+                            "inverted": true
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "light_type": "block",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.20
+        }
+    },
+    "movement_slow_walk_swim_lava": {
+        "type": "apoli:conditioned_attribute",
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime"
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime",
+                            "inverted": true
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "light_type": "block",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "tick_rate": 1,
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_total",
+                "value": -0.25
+            },
+            {
+                "attribute": "additionalentityattributes:water_speed",
+                "operation": "multiply_total",
+                "value": -0.25
+            },
+            {
+                "attribute": "additionalentityattributes:lava_speed",
+                "operation": "multiply_total",
+                "value": -0.25
+            }
+        ]
+    },
+    "movement_slow_air": {
+        "type": "apoli:modify_air_speed",
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime"
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime",
+                            "inverted": true
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "light_type": "block",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        }
+    },
+    "void_degen": {
+        "type": "apoli:action_over_time",
+        "interval": 4,
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:power",
+                    "power": "*:shade_master/void_mastery",
+                    "inverted": true
+                },
+                {
+                    "type": "apoli:or",
+                    "conditions": [
+                        {
+                            "type": "apoli:and",
+                            "conditions": [
+                                {
+                                    "type": "apoli:daytime"
+                                },
+                                {
+                                    "type": "apoli:in_block",
+                                    "block_condition": {
+                                        "type": "apoli:light_level",
+                                        "comparison": ">",
+                                        "compare_to": 11
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "apoli:and",
+                            "conditions": [
+                                {
+                                    "type": "apoli:daytime",
+                                    "inverted": true
+                                },
+                                {
+                                    "type": "apoli:in_block",
+                                    "block_condition": {
+                                        "type": "apoli:light_level",
+                                        "light_type": "block",
+                                        "comparison": ">",
+                                        "compare_to": 11
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:void_energy",
+            "change": -30,
+            "operation": "add"
+        }
+    }
+}

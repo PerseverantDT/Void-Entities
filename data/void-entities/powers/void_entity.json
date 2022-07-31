@@ -1,0 +1,205 @@
+{
+    "type": "apoli:multiple",
+    "badges": [
+        {
+            "sprite": "void-entities:textures/gui/badge/no_food.png",
+            "text": "void-entities.gui.badge.void_entity/no_food"
+        },
+        {
+            "sprite": "void-entities:textures/gui/badge/no_air.png",
+            "text": "void-entities.gui.badge.void_entity/no_air"
+        },
+        {
+            "sprite": "void-entities:textures/gui/badge/void_heart.png",
+            "text": "void-entities.gui.badge.void_entity/void_heart"
+        },
+        {
+            "sprite": "void-entities:textures/gui/badge/reverse_resistance.png",
+            "text": "void-entities.gui.badge.reverse_resistance"
+        }
+    ],
+    "cant_starve": {
+        "type": "apoli:modify_exhaustion",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "cant_eat": {
+        "type": "apoli:prevent_item_use",
+        "item_condition": {
+            "type": "apoli:food"
+        }
+    },
+    "no_hunger": {
+        "type": "apoli:effect_immunity",
+        "effects": [
+            "minecraft:hunger"
+        ]
+    },
+    "no_air": {
+        "type": "apoli:invulnerability",
+        "damage_condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:name",
+                    "name": "inWall"
+                },
+                {
+                    "type": "apoli:name",
+                    "name": "drown"
+                }
+            ]
+        }
+    },
+    "cant_regen": {
+        "type": "apoli:disable_regen"
+    },
+    "combat_timer": {
+        "type": "apoli:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "trigger_combat": {
+        "type": "apoli:self_action_when_hit",
+        "cooldown": 1,
+        "entity_action": {
+            "type": "apoli:trigger_cooldown",
+            "power": "*:*_combat_timer"
+        }
+    },
+    "void_reformation": {
+        "type": "apoli:action_over_time",
+        "interval": 5,
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:relative_health",
+                    "comparison": "<",
+                    "compare_to": 1.0
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:void_energy",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:if_else",
+                    "condition": {
+                        "type": "apoli:resource",
+                        "resource": "*:*_combat_timer",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "apoli:heal",
+                        "amount": 0.625
+                    },
+                    "else_action": {
+                        "type": "apoli:heal",
+                        "amount": 0.125
+                    }
+                },
+                {
+                    "type": "apoli:change_resource",
+                    "resource": "*:void_energy",
+                    "change": -1
+                }
+            ]
+        }
+    },
+    "damage_taken_debuff": {
+        "type": "apoli:modify_damage_taken",
+        "damage_condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:name",
+                    "name": "magic"
+                },
+                {
+                    "type": "apoli:name",
+                    "name": "voidShatter"
+                },
+                {
+                    "type": "apoli:name",
+                    "name": "voidGlidingShade"
+                },
+                {
+                    "type": "apoli:name",
+                    "name": "voidTrail"
+                },
+                {
+                    "type": "apoli:name",
+                    "name": "voidWarpShade"
+                },
+                {
+                    "type": "apoli:name",
+                    "name": "voidTeleport"
+                },
+                {
+                    "type": "apoli:name",
+                    "name": "voidBarrierEdge"
+                }
+            ],
+            "inverted": true
+        },
+        "modifier": {
+            "operation": "multiply_base",
+            "value": 0.25
+        }
+    },
+    "health_debuff": {
+        "type": "apoli:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "operation": "multiply_base",
+            "value": -0.20
+        }
+    },
+    "withering_hands": {
+        "type": "apoli:target_action_on_hit",
+        "cooldown": 1,
+        "condition": {
+            "type": "apoli:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "apoli:empty"
+            }
+        },
+        "entity_action": {
+            "type": "apoli:apply_effect",
+            "effect": {
+                "effect": "minecraft:wither",
+                "amplifier": 0,
+                "duration": 150
+            }
+        }
+    },
+    "color": {
+        "type": "apoli:model_color",
+        "red": 0.1,
+        "blue": 0.1,
+        "green": 0.1,
+        "alpha": 1.0
+    },
+    "ambient_particles": {
+        "type": "apoli:particle",
+        "particle": {
+            "type": "minecraft:dust",
+            "params": "0 0 0 2"
+        },
+        "frequency": 5,
+        "visible_in_first_person": false
+    }
+}

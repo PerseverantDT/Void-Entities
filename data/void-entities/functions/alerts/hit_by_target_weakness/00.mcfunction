@@ -1,0 +1,1 @@
+title @s actionbar {"text": "The Void reveals your weakness.","color": "black","bold": true}

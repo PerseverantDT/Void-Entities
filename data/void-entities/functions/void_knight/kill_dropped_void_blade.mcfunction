@@ -1,0 +1,2 @@
+kill @s[type=item,nbt={Item:{id:"minecraft:netherite_sword",tag:{CustomData:19534s,Unbreakable:1b}}}]
+kill @s[type=item,nbt={Item:{id:"minecraft:netherite_sword",tag:{CustomData:26974s,Unbreakable:1b}}}]
