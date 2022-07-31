@@ -122,8 +122,7 @@
                 {
                     "type": "apoli:change_resource",
                     "resource": "*:*_is_active",
-                    "change": 1,
-                    "operation": "add"
+                    "change": 1
                 }
             ]
         },

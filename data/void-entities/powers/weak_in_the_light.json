@@ -70,7 +70,7 @@
             ]
         },
         "modifier": {
-            "operation": "multiply_total",
+            "operation": "multiply_total_multiplicative",
             "value": -0.25
         }
     },
@@ -116,7 +116,7 @@
             ]
         },
         "modifier": {
-            "operation": "multiply_total",
+            "operation": "multiply_total_multiplicative",
             "value": 0.20
         }
     },

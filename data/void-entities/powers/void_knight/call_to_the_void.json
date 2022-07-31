@@ -178,8 +178,8 @@
             "compare_to": 1
         },
         "modifier": {
-            "operation": "multiply_total",
-            "value": -1.0
+            "operation": "max_total",
+            "value": 0.0
         }
     },
     "no_movement_air": {
@@ -191,8 +191,8 @@
             "compare_to": 1
         },
         "modifier": {
-            "operation": "multiply_total",
-            "value": -1.0
+            "operation": "max_total",
+            "value": 0.0
         }
     },
     "no_interact": {
@@ -222,8 +222,8 @@
             "compare_to": 1
         },
         "modifier": {
-            "operation": "multiply_total",
-            "value": -1.0
+            "operation": "max_total",
+            "value": 0.0
         }
     },
     "visuals_converge": {

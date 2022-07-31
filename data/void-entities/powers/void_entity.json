@@ -155,7 +155,7 @@
             "inverted": true
         },
         "modifier": {
-            "operation": "multiply_base",
+            "operation": "multiply_total_multiplicative",
             "value": 0.25
         }
     },

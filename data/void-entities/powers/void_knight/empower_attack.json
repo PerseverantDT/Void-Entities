@@ -95,11 +95,11 @@
         },
         "modifiers": [
             {
-                "operation": "multiply_base",
+                "operation": "multiply_base_multiplicative",
                 "value": 0.25
             },
             {
-                "operation": "addition",
+                "operation": "add_base_late",
                 "value": 2
             }
         ],
