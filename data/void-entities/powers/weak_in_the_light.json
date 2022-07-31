@@ -120,7 +120,7 @@
             "value": 0.20
         }
     },
-    "movement_slow_walk_swim_lava": {
+    "movement_slow_walk": {
         "type": "apoli:conditioned_attribute",
         "condition": {
             "type": "apoli:or",
@@ -165,20 +165,102 @@
         "modifiers": [
             {
                 "attribute": "minecraft:generic.movement_speed",
-                "operation": "multiply_total",
-                "value": -0.25
-            },
-            {
-                "attribute": "additionalentityattributes:water_speed",
-                "operation": "multiply_total",
-                "value": -0.25
-            },
-            {
-                "attribute": "additionalentityattributes:lava_speed",
-                "operation": "multiply_total",
+                "operation": "multiply_base",
                 "value": -0.25
             }
         ]
+    },
+    "movement_slow_swim": {
+        "type": "apoli:modify_swim_speed",
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime"
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime",
+                            "inverted": true
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "light_type": "block",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "multiply_base_additive",
+            "value": -0.25
+        }
+    },
+    "movement_slow_lava": {
+        "type": "apoli:modify_lava_speed",
+        "condition": {
+            "type": "apoli:or",
+            "conditions": [
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime"
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:and",
+                    "conditions": [
+                        {
+                            "type": "apoli:daytime",
+                            "inverted": true
+                        },
+                        {
+                            "type": "apoli:in_block",
+                            "block_condition": {
+                                "type": "apoli:light_level",
+                                "light_type": "block",
+                                "comparison": ">",
+                                "compare_to": 11
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "multiply_base_additive",
+            "value": -0.25
+        }
     },
     "movement_slow_air": {
         "type": "apoli:modify_air_speed",
@@ -222,7 +304,7 @@
             ]
         },
         "modifier": {
-            "operation": "multiply_total",
+            "operation": "multiply_base_additive",
             "value": -0.25
         }
     },
@@ -281,8 +363,7 @@
         "entity_action": {
             "type": "apoli:change_resource",
             "resource": "*:void_energy",
-            "change": -30,
-            "operation": "add"
+            "change": -30
         }
     }
 }

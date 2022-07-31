@@ -126,7 +126,7 @@
             "value": 0.5
         }
     },
-    "no_movement_walk_swim_lava": {
+    "no_movement_walk": {
         "type": "apoli:conditioned_attribute",
         "condition": {
             "type": "apoli:resource",
@@ -140,18 +140,34 @@
                 "attribute": "minecraft:generic.movement_speed",
                 "operation": "multiply_total",
                 "value": -1.0
-            },
-            {
-                "attribute": "additionalentityattributes:water_speed",
-                "operation": "multiply_total",
-                "value": -1.0
-            },
-            {
-                "attribute": "additionalentityattributes:lava_speed",
-                "operation": "multiply_total",
-                "value": -1.0
             }
         ]
+    },
+    "no_movement_swim": {
+        "type": "apoli:modify_swim_speed",
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "*:*_is_active",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "modifier": {
+            "operation": "max_total",
+            "value": 0.0
+        }
+    },
+    "no_movement_lava": {
+        "type": "apoli:modify_lava_speed",
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "*:*_is_active",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "modifier": {
+            "operation": "max_total",
+            "value": 0.0
+        }
     },
     "no_movement_jump": {
         "type": "apoli:modify_jump",

@@ -1,25 +1,29 @@
 {
     "type": "apoli:multiple",
     "hidden": true,
-    "no_movement_walk_swim_lava": {
+    "no_movement_walk": {
         "type": "apoli:attribute",
         "modifiers": [
             {
                 "attribute": "minecraft:generic.movement_speed",
                 "operation": "multiply_total",
                 "value": -1.0
-            },
-            {
-                "attribute": "additionalentityattributes:water_speed",
-                "operation": "multiply_total",
-                "value": -1.0
-            },
-            {
-                "attribute": "additionalentityattributes:lava_speed",
-                "operation": "multiply_total",
-                "value": -1.0
             }
         ]
+    },
+    "no_movement_swim": {
+        "type": "apoli:modify_swim_speed",
+        "modifier": {
+            "operation": "max_total",
+            "value": 0.0
+        }
+    },
+    "no_movement_lava": {
+        "type": "apoli:modify_lava_speed",
+        "modifier": {
+            "operation": "max_total",
+            "value": 0.0
+        }
     },
     "no_movement_air": {
         "type": "apoli:modify_air_speed",
