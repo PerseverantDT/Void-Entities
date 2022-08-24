@@ -1,4 +1,4 @@
-# Warriors-of-the-Void
+# Void Entities
 
 Heralding from the Void Between Worlds, these creatures entered the lands for reasons unknown. Care must be taken when confronting them due to their destructive nature.
 
