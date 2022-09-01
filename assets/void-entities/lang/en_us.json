@@ -41,36 +41,6 @@
     "power.void-entities.void_knight/dense_body.name": "Dense Concentration",
     "power.void-entities.void_knight/dense_body.description": "Unless you have 20% Void Energy, you cannot float in water.",
 
-    "power.void-entities.shade_master/void_mastery.name": "Void Mastery",
-    "power.void-entities.shade_master/void_mastery.description": "You take massively reduced damage from all forms of Void damage and can passively regenerate Void Energy.",
-
-    "power.void-entities.shade_master/ability_switch.name": "Ability Switch",
-    "power.void-entities.shade_master/ability_switch.description": "You can switch your active abilities with the Load Hotbar Activator and Save Hotbar Activator keys.",
-
-    "power.void-entities.shade_master/summon_static_shade.name": "Summon Static Shade",
-    "power.void-entities.shade_master/summon_static_shade.description": "You can summon a Shade on your position. This Shade will stay in position regardless of entity collision or gravity. Enemies near a Static Shade will glow for you.",
-
-    "power.void-entities.shade_master/summon_gliding_shade.name": "Summon Gliding Shade",
-    "power.void-entities.shade_master/summon_gliding_shade.description": "You can summon a Shade on your position. This Shade will slowly glide towards the nearest entity within a 10-block radius. If anyone is within 3 blocks of this Shade, summoner included, there is a chance that the Shade will attack everyone close to it, dealing a small amount of Void damage.",
-
-    "power.void-entities.shade_master/become_trailing_shade.name": "Trailing Shadow",
-    "power.void-entities.shade_master/become_trailing_shade.description": "You can briefly turn yourself into a Trailing Shade, leaving a trail of Void while moving. After a few seconds, the trail's energy explodes, dealing Void damage to all entities near it. Abilities are disabled while this is active.",
-
-    "power.void-entities.shade_master/shade_warp.name": "Shade Warp",
-    "power.void-entities.shade_master/shade_warp.description": "You can send out a Shade forward 10 blocks, dealing minimal damage to whoever it touches. After it stops, you teleport to the shade after a short delay.",
-
-    "power.void-entities.shade_master/void_barrier.name": "Void Barrier",
-    "power.void-entities.shade_master/void_barrier.description": "All nearby Shades begin emitting a protective Void aura. All entities in the aura slowly take negligible damage but receive 80% less damage from projectiles and attackers from outside. Entities touching the edge of the aura take significant damage.",
-
-    "power.void-entities.shade_master/restoration.name": "Restoration",
-    "power.void-entities.shade_master/restoration.description": "You consume the nearest Shade, restoring Void energy and health.",
-
-    "power.void-entities.shade_master/weak_materiality.name": "Weak Materiality",
-    "power.void-entities.shade_master/weak_materiality.description": "You have less health and take more damage compared to other Void entities.",
-
-    "power.void-entities.shade_master/shade_transfiguration.name": "Shade Transfiguration",
-    "power.void-entities.shade_master/shade_transfiguration.description": "On death, you turn into a Void Shade, gaining death immunity, increased movement speed, increased attack speed, and increased damage. However, you lose Void Energy over time. You die if your Void Energy depletes. After 5 seconds, your remaining Void Energy will reform your body, allowing you to live once again. Taking damage will regress this reformation.",
-
     "void-entities.gui.badge.held_ability": "Held ability, use %s",
     "void-entities.gui.badge.damage_buff": "You deal additional melee damage.",
     "void-entities.gui.badge.damage_resist": "You take reduced damage from all sources.",
@@ -93,17 +63,5 @@
     "void-entities.gui.badge.void_cloak/cooldown": "Cooldown: 3 seconds",
 
     "death.attack.voidShatter": "%1$s was overwhelmed with Void energy.",
-    "death.attack.voidShatter.player": "%1$s was overwhelmed with Void energy due to %2$s.",
-    "death.attack.voidGlidingShade": "%1$s was lashed at by a Gliding Shade.",
-    "death.attack.voidGlidingShade.player": "%1$s was lashed at by a Gliding Shade while fighting %2$s.",
-    "death.attack.voidTrail": "%1$s came too close to a Void trail.",
-    "death.attack.voidTrail.player": "%2$s forced %1$s too close to a Void trail.",
-    "death.attack.voidWarpShade": "%1$s was consumed by a Warp Shade",
-    "death.attack.voidWarpShade.player": "%1$s was consumed by a Warp Shade while fighting %2$s.",
-    "death.attack.voidTeleport": "%1$s was run over by the Void.",
-    "death.attack.voidTeleport.player": "%1$s was run over by the Void while fighting %2$s.",
-    "death.attack.voidBarrierEdge": "%1$s was sliced by a Void barrier.",
-    "death.attack.voidBarrierEdge.player": "%1$s was sliced by a Void Barrier while fighting %2$s.",
-    "death.attack.shadeTransfigExpire": "%1$s could not reform their body in time.",
-    "death.attack.shadeTransfigExpire.player": "%1$s could not reform their body in time due to %2$s."
+    "death.attack.voidShatter.player": "%1$s was overwhelmed with Void energy due to %2$s."
 }
