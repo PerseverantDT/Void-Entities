@@ -1,3 +1,7 @@
+# System-added Files
+Thumbs.db
+.DS_Store
+
 # Environment Folders
 /test
 /.vscode
