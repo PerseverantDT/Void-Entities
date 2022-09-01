@@ -4,8 +4,8 @@ Heralding from the Void Between Worlds, these creatures entered the lands for re
 
 ## Requirements
 
-- Origins 1.4.1+
-  - Minecraft 1.18.2+
+- Origins 1.4.1
+  - Minecraft 1.18.2
 - Custom Resource Pack
 
 ## Origins
@@ -113,6 +113,51 @@ One of the Void's stronger fighters. Only a few can face its power without dire 
   - Does not work against projectiles.
 - Dense Concentration: Unless you have 20% Void Energy, you cannot float in water.
 
-### Shade Master
+### Shade Master (WIP)
 
 A creature capable of summoning and harnessing constructs of pure Void.
+
+#### Abilities
+
+- Void Entity: You are a creature from the Void Between Worlds, capable of harnessing its highly destructive energy without repercussions.
+  - You have no need for food nor air. Likewise, you cannot be affected by hunger.
+  - You gain access to Void Energy.
+    - Maximum of 10000. Starts with 7500.
+    - Death regenerates a variable amount depending on how much you still had before death.
+  - You require Void Energy to regenerate health. Health regeneration is boosted outside of combat.
+    - Regenerates 0.5 HP per second in exchange for 4 Void Energy per second. Boosted to 2.5 HP per second in exchange for 4 Void Energy per second.
+  - You take more damage from physical attacks.
+    - +25% base damage taken. Stacks additively with other modifiers.
+  - Your unarmed attacks are withering.
+    - Deals Wither I for 7.5 seconds.
+  - Your model is colored near-pitch-black.
+  - You emit black particles around you.
+- Nightly Abyss: When in dark areas, you become stronger as the Void empowers you directly.
+  - You deal more melee damage.
+    - +20% melee damage dealt. Stacks multiplicatively with other modifiers.
+  - You take less damage.
+    - -15% damage taken. Stacks multiplicatively with other modifiers.
+  - You regenerate Void Energy.
+    - +100 Void Energy per second
+- Blinding Light: When in bright areas, your body becomes overwhelmed with the light, weakening you.
+  - You deal less melee damage.
+    - -25% melee damage dealt. Stacks multiplicatively with other modifiers.
+  - You take more damage.
+    - +20% damage taken. Stacks multiplicatively with other modifiers.
+  - You move slower.
+    - -25% movement speed. Stacks multiplicatively with other modifiers.
+    - Known bug (Origins 1.4.1/MC 1.18.2): Movement in lava is not slowed down.
+  - You degenerate Void Energy.
+    - -150 Void Energy per second
+- Void Mastery: Your mastery of Void Energy gives you greater control over its limits and capabilities.
+- Summon Static Shade: Create a Shade that watches over an area, alerting you of nearby enemies.
+  - ????????????
+- Summon Gliding Shade: Create a Shade that lashes out at those close to it.
+  - ????????????
+  - You are not immune to its attacks.
+- ????????????
+- ????????????
+- ????????????
+- ????????????
+- ????????????
+- ????????????
