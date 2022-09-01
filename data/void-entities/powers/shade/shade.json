@@ -1,0 +1,30 @@
+{
+    "type": "apoli:multiple",
+    "color": {
+        "type": "apoli:model_color",
+        "red": 0,
+        "green": 0,
+        "blue": 0,
+        "alpha": 1
+    },
+    "no_ambient_damage": {
+        "type": "apoli:invulnerability",
+        "damage_condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:attacker",
+                    "inverted": true
+                },
+                {
+                    "type": "apoli:name",
+                    "name": "outOfWorld",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "no_burn": {
+        "type": "apoli:fire_immunity"
+    }
+}
