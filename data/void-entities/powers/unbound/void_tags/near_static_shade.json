@@ -1,0 +1,37 @@
+{
+    "type": "apoli:multiple",
+    "duration": {
+        "type": "apoli:resource",
+        "min": 0,
+        "max": 25,
+        "max_action": {
+            "type": "apoli:revoke_power",
+            "power": "*:*",
+            "source": "void-entities:static_shade_proximity"
+        },
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "tick": {
+        "type": "apoli:action_over_time",
+        "interval": 4,
+        "condition": {
+            "type": "apoli:command",
+            "command": "execute if entity @s[tag=static_shade,distance=..6]",
+            "comparison": "<=",
+            "compare_to": 0
+        },
+        "entity_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_duration",
+            "change": 1
+        },
+        "falling_action": {
+            "type": "apoli:set_resource",
+            "resource": "*:*_duration",
+            "value": 0
+        }
+    }
+}
