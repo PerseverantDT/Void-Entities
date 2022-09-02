@@ -5,6 +5,7 @@ Thumbs.db
 # Environment Folders
 /test
 /.vscode
+/.vs
 
 # Releases
 /releases
@@ -13,3 +14,9 @@ Thumbs.db
 **/*.xcf
 **/*.txt
 plans.md
+
+# Build script files
+**/*.cs
+**/*.csproj
+/obj
+/bin

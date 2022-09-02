@@ -1,6 +1,4 @@
 {
-    "pack": {
-        "pack_format": 9,
-        "description": "Adds Void-themed origins focused on combat."
-    }
+    "datapackDescription": "Adds Void-themed origins focused on combat.",
+    "resourcepackDescription": "Custom Textures for the Void Entities datapack"
 }
