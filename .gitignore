@@ -13,9 +13,3 @@ Thumbs.db
 **/*.xcf
 **/*.txt
 plans.md
-
-# Build Script
-**/build.ts
-/node_modules
-package-lock.json
-package.json
