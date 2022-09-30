@@ -1,0 +1,1 @@
+execute as @e[tag=gliding_shade] at @s if entity @e[tag=gliding_shade_target,distance=..8] run function void-entities:shade/glide_to_nearby

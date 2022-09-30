@@ -1,0 +1,141 @@
+{
+  "type": "apoli:multiple",
+  "check_timer": {
+    "type": "apoli:resource",
+    "min": 0,
+    "max": 20,
+    "max_action": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:set_resource",
+          "resource": "*:*_check_timer",
+          "value": 0
+        },
+        {
+          "type": "apoli:if_else",
+          "condition": {
+            "type": "apoli:and",
+            "conditions": [
+              {
+                "type": "apoli:command",
+                "command": "execute if entity @e[type=!#nonliving,distance=..2,tag=gliding_shade_target]",
+                "comparison": ">",
+                "compare_to": 0
+              },
+              {
+                "type": "apoli:or",
+                "conditions": [
+                  {
+                    "type": "apoli:resource",
+                    "resource": "*:*_guarantee_timer",
+                    "comparison": "==",
+                    "compare_to": 150
+                  },
+                  {
+                    "type": "apoli:predicate",
+                    "predicate": "void-entities:gliding_shade_attack_chance"
+                  }
+                ]
+              }
+            ]
+          },
+          "if_action": {
+            "type": "apoli:and",
+            "actions": [
+              {
+                "type": "apoli:set_resource",
+                "resource": "*:*_guarantee_timer",
+                "value": 0
+              },
+              {
+                "type": "apoli:execute_command",
+                "command": "tag @e[type=!#nonliving,distance=..2,tag=gliding_shade_target,limit=1,sort=nearest] add attack_target"
+              },
+              {
+                "type": "apoli:area_of_effect",
+                "radius": 5,
+                "bientity_condition": {
+                  "type": "apoli:target_condition",
+                  "condition": {
+                    "type": "apoli:command",
+                    "command": "execute if entity @s[tag=attack_target]",
+                    "comparison": ">",
+                    "compare_to": 0
+                  }
+                },
+                "bientity_action": {
+                  "type": "apoli:and",
+                  "actions": [
+                    {
+                      "type": "apoli:damage",
+                      "amount": 4,
+                      "source": {
+                        "name": "voidLashOut",
+                        "bypasses_armor": true,
+                        "unblockable": true
+                      }
+                    },
+                    {
+                      "type": "apoli:actor_action",
+                      "action": {
+                        "type": "apoli:change_resource",
+                        "resource": "*:void_energy",
+                        "change": 500
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "apoli:execute_command",
+                "command": "tag @e[type=!#nonliving,distance=..2,tag=attack_target,limit=1,sort=nearest] remove attack_target"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "start_value": 0,
+    "hud_render": {
+      "should_render": false
+    }
+  },
+  "guarantee_timer": {
+    "type": "apoli:resource",
+    "min": 0,
+    "max": 150,
+    "start_value": 0,
+    "hud_render": {
+      "should_render": false
+    }
+  },
+  "timer_tick": {
+    "type": "apoli:action_over_time",
+    "interval": 1,
+    "entity_action": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:change_resource",
+          "resource": "*:*_guarantee_timer",
+          "change": 1
+        },
+        {
+          "type": "apoli:if_else",
+          "condition": {
+            "type": "apoli:command",
+            "command": "execute if entity @e[type=!#nonliving,distance=..2,tag=gliding_shade_target]",
+            "comparison": ">",
+            "compare_to": 0
+          },
+          "if_action": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_check_timer",
+            "change": 1
+          }
+        }
+      ]
+    }
+  }
+}

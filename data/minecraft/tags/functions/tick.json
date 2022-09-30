@@ -8,6 +8,10 @@
         {
             "id": "void-entities:void_knight/find_invalid_void_blade",
             "required": false
+        },
+        {
+            "id": "void-entities:shade/check_for_glide",
+            "required": false
         }
     ]
 }

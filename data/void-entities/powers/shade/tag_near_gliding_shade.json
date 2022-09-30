@@ -1,0 +1,32 @@
+{
+  "type": "apoli:action_over_time",
+  "interval": 2,
+  "entity_action": {
+    "type": "apoli:area_of_effect",
+    "radius": 6,
+    "bientity_condition": {
+      "type": "apoli:target_condition",
+      "condition": {
+        "type": "apoli:and",
+        "conditions": [
+          {
+            "type": "apoli:living"
+          },
+          {
+            "type": "apoli:power",
+            "power": "*:unbound/void_tags/near_gliding_shade",
+            "inverted": true
+          }
+        ]
+      }
+    },
+    "bientity_action": {
+      "type": "apoli:target_action",
+      "action": {
+        "type": "apoli:grant_power",
+        "power": "*:unbound/void_tags/near_gliding_shade",
+        "source": "void-entities:static_shade_proximity"
+      }
+    }
+  }
+}

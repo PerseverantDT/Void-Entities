@@ -63,5 +63,7 @@
     "void-entities.gui.badge.void_cloak/cooldown": "Cooldown: 3 seconds",
 
     "death.attack.voidShatter": "%1$s was overwhelmed with Void energy.",
-    "death.attack.voidShatter.player": "%1$s was overwhelmed with Void energy due to %2$s."
+    "death.attack.voidShatter.player": "%1$s was overwhelmed with Void energy while fighting %2$s.",
+    "death.attack.voidLashOut": "%1$s was lashed at by a Shade.",
+    "death.attack.voidLashOut.player": "%1$s was lashed at by a Shade whilst fighting %2$s"
 }

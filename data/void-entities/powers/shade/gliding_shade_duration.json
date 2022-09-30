@@ -1,0 +1,19 @@
+{
+    "type": "apoli:action_over_time",
+    "interval": 8,
+    "condition": {
+        "type": "apoli:resource",
+        "resource": "*:void_energy",
+        "comparison": ">",
+        "compare_to": 0
+    },
+    "entity_action": {
+        "type": "apoli:change_resource",
+        "resource": "*:void_energy",
+        "change": -25
+    },
+    "falling_action": {
+        "type": "apoli:execute_command",
+        "command": "kill @s"
+    }
+}

@@ -6,6 +6,7 @@ Thumbs.db
 /test
 /.vscode
 /.vs
+/.idea
 
 # Releases
 /releases
@@ -16,7 +17,5 @@ Thumbs.db
 plans.md
 
 # Build script files
-**/*.cs
-**/*.csproj
-/obj
-/bin
+dprpbuilder.ini
+*.log
